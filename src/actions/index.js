@@ -19,7 +19,7 @@ export const summonerFailure = (error) => ({
 export const makeApiCall = () => {
     return dispatch => {
       dispatch(requestSummonerInfo);
-      return fetch(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.REACT_APP_API_KEY}`)
+      return fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/wang%20pang?api_key=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(
           (jsonifiedResponse) => {
