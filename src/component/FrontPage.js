@@ -4,6 +4,11 @@ import { makeApiCall } from '../actions'
 
 
 class FrontPage extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+
     componentDidMount(){
         const {dispatch} = this.props;
         dispatch(makeApiCall());
@@ -23,29 +28,18 @@ class FrontPage extends React.Component {
           return (
             <React.Fragment>
               
-              <ul>
-                {SummonerDTO.map((SummonerDTO, index) =>
-                  <li key={index}>
+             
+                
+                
                     <h3>{SummonerDTO.id}</h3>
                     <p>{SummonerDTO.summonerLevel}</p>
                     <p>{SummonerDTO.name}</p>
-                  </li>
-                )}
-              </ul>
+               
+            
             </React.Fragment>
           );
         }
       }
-
-
-
-
-
-
-
-
-
-
 
 }
 

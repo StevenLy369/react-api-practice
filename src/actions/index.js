@@ -7,6 +7,7 @@ export const requestSummonerInfo = () => ({
 export const summonerSuccess = (SummonerDTO) => ({
     type: c.GET_SUMMONER_SUCCESS,
     SummonerDTO
+    
 });
 
 export const summonerFailure = (error) => ({
@@ -19,11 +20,12 @@ export const summonerFailure = (error) => ({
 export const makeApiCall = () => {
     return dispatch => {
       dispatch(requestSummonerInfo);
-      return fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/wang%20pang?api_key=${process.env.REACT_APP_API_KEY}`)
+      return fetch( `https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/doublelift?api_key=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(
           (jsonifiedResponse) => {
-            dispatch(summonerSuccess(jsonifiedResponse.results));
+            dispatch(summonerSuccess(jsonifiedResponse));
+        
           })
         .catch((error) => {
           dispatch(summonerFailure(error));
