@@ -4,9 +4,9 @@ export const requestSummonerInfo = () => ({
     type: c.REQUEST_SUMMONER_INFO
 });
 
-export const summonerSuccess = (summoner) => ({
+export const summonerSuccess = (SummonerDTO) => ({
     type: c.GET_SUMMONER_SUCCESS,
-    summoner
+    SummonerDTO
 });
 
 export const summonerFailure = (error) => ({
@@ -29,4 +29,4 @@ export const makeApiCall = () => {
           dispatch(summonerFailure(error));
         });
     }
-  }
+}
